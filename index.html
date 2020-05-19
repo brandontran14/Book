@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--This is a template for HTML files-->
+<html>
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Code goes here-->
+    <h1>Online Library</h1>
+    <div id="myForm">
+        <form id="formAdd">
+            <input type="text" name="Title" placeholder="Title"><br>
+            <input type="text" name="Author" placeholder="Author"><br>
+            <input type="text" name="Pages" placeholder="Pages"><br>
+            Read?
+            <input type="radio" id="Read" name="Read" value="read">
+            <label for="read">Yes</label>
+            <input type="radio" id="Unread" name="Read" value="Unread">
+            <label for="read">No</label><br>
+            <button type="button" id="addBook" value="Submit">Add Book</button>
+        </form>  
+    </div>
+    <div id="container">
+        <div id="items">
+        </div>
+    </div>
+    
+</body>
+<!-- JS source-->
+<script type="text/javascript" src="book.js"></script>
+</html>
