@@ -64,7 +64,6 @@ function toggleread(e){
     index = e.target.dataset.stuff;
     unit = myLibrary[index];
     let toggledbook = e.target.parentElement; 
-    console.log(toggledbook);
     unit.isread = unit.isread ? false : true;
     toggledbook.classList.toggle("read");
 }
