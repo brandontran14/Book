@@ -16,8 +16,8 @@ function Book(title, author, pages, isread){
     }
   }
 
+//get all the info and store the object into the library
   function addBooktoLibrary(title, author, pages, isread){
-    //get all the info and store the object into the library
     myLibrary.push(new Book(title, author, pages, isread));
   }
 
@@ -27,19 +27,23 @@ function render(){
     let unit = myLibrary[lastindex];
     let card = document.createElement("div");
     card.className = "book-card";
+    if(unit.isread == "read"){
+      card.classList.toggle("read");
+    }
     card.innerHTML =
-        `   <div>Title: ${unit.title}</div>
-            <div>Author: ${unit.author}</div>
-            <div>Pages: ${unit.pages}</div>
-            <div>Read?: ${unit.isread}</div>
-            <button type="button" id="remove" data-stuff=${lastindex}>Remove</button>
-            <button type="button" id="toggleread" data-stuff=${lastindex}>Read</button>`;
+        ` <div>Title: ${unit.title}</div>
+          <div>Author: ${unit.author}</div>
+          <div>Pages: ${unit.pages}</div>
+          <div id="Status">Status: ${unit.isread}</div>
+          <button type="button" id="remove" data-stuff=${lastindex}>Remove</button>
+          <button type="button" id="toggleread" data-stuff=${lastindex}>Read</button>
+        `;
     document.getElementById("items").appendChild(card);
 }
 
 //this function lets user add new books
 function newbook(){
-    let isread = (document.getElementById("Read").checked)? true : false
+    let isread = (document.getElementById("Read").checked)? "read" : "unread"
     //checks if fields are filled
     if(!titlefield.value || !authorfield.value || !pagesfield.value){
         alert("You did not fill out all of the fields!")
@@ -64,7 +68,9 @@ function toggleread(e){
     index = e.target.dataset.stuff;
     unit = myLibrary[index];
     let toggledbook = e.target.parentElement; 
-    unit.isread = unit.isread ? false : true;
+    unit.isread = unit.isread == "read" ? unit.isread = "unread" : unit.isread = "read";
+    let togglestatus = toggledbook.lastElementChild; //weird
+    togglestatus.innerHTML = `Status: ${unit.isread}`;
     toggledbook.classList.toggle("read");
 }
 
