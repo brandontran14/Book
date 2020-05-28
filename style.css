@@ -2,10 +2,10 @@
 h1{
     text-align: center;
     background-color: rgb(255, 191, 108);
-    color:white;
+    color:black;
     font-size:40px;
     text-align:center;
-    display:inline-block;
+    display: inline-block;
     position:relative;
     width:100%; 
 }
@@ -15,7 +15,7 @@ body{
     background-image: url("https://www.citeonline.com/wp-content/uploads/2019/09/iStock-969066628.jpg");
     grid-template-columns: 1fr 20px 3fr;
     grid-template-areas:
-      "header header header"
+      ". . header"
       "myForm . container"
       ". . container"
       ". . container"
