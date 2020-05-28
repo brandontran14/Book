@@ -27,7 +27,7 @@ function render(){
     let unit = myLibrary[lastindex];
     let card = document.createElement("div");
     card.className = "book-card";
-    if(unit.isread == "read"){
+    if(unit.isread == "Read"){
       card.classList.toggle("read");
     }
     card.innerHTML =
@@ -43,7 +43,7 @@ function render(){
 
 //this function lets user add new books
 function newbook(){
-    let isread = (document.getElementById("Read").checked)? "read" : "unread"
+    let isread = (document.getElementById("Read").checked)? "Read" : "Unread"
     //checks if fields are filled
     if(!titlefield.value || !authorfield.value || !pagesfield.value){
         alert("You did not fill out all of the fields!")
@@ -68,9 +68,9 @@ function toggleread(e){
     index = e.target.dataset.stuff;
     unit = myLibrary[index];
     let toggledbook = e.target.parentElement; 
-    unit.isread = unit.isread == "read" ? unit.isread = "unread" : unit.isread = "read";
-    let togglestatus = toggledbook.lastElementChild; //weird
-    togglestatus.innerHTML = `Status: ${unit.isread}`;
+    unit.isread = unit.isread == "Read" ? unit.isread = "Unread" : unit.isread = "Read";
+    let togglestatus = toggledbook.lastElementChild; 
+    togglestatus.innerHTML = `${unit.isread}`;
     toggledbook.classList.toggle("read");
 }
 
